@@ -14,10 +14,12 @@ if(!MONKEYLEARN_AUTH_TOKEN){
   process.exit(1);
 }
 
+var apiId = process.argv[3] || "cl_5icAVzKR";
+
 var classifier = new Classifier(
   MONKEYLEARN_AUTH_TOKEN,
   {
-    apiId: "cl_5icAVzKR", 
+    apiId: apiId, 
 //    sandbox: true,
 //    debug: true
   }
