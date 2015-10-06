@@ -11,36 +11,65 @@ Install the package into your project
 $ npm install monkeylearn-client --save
 ```
 
+#### Classifier Example
+
 ```
 var Classifier = require('monkeylearn-client').Classifier;
 
 var classifier = new Classifier(process.env['MONKEYLEARN_AUTH_TOKEN'], 
                                 {
-                                  apiId: 'cl_5icAVzKR' // Generic Topic Classifier
+                                  apiId: 'cl_5icAVzKR' // Generic Classifier
                                 });
-
-classifier.classify([
+var strings = [
     "Hello World",
     "Foxes, Horses, Bunnies and Ducklings"
-  ], 
-  function(error, response) {
-    if(error){
-      console.error("HTTPS ERROR", error);
-    } else {
-      if(response.resolved()){
-        console.log(JSON.stringify(response.results()));
-      } else {
-        // API Error Message
-        console.log("API ERROR", response.error());
-      }
-    }
-  });                                
+  ];
+
+classifier.classify(strings)
+  .then(function(response){
+    console.log(JSON.stringify(response.results()));
+    console.log("Query Limit Remaning : " + classifier.queryLimitRemaning());
+  })
+  .catch(function(error){
+    console.error("ERROR", error);
+  });                               
 ```
 
-### Command Line Demo Example
+##### Command Line Demo Example
 ```
 $ export MONKEYLEARN_AUTH_TOKEN=YOUR_AUTH_TOKEN
 $ ./bin/classify "Hello World"
+```
+
+
+#### Keyword Extractor Example
+
+```
+var Extractor = require('monkeylearn-client').Extractor;
+
+var extractor = new Extractor(process.env['MONKEYLEARN_AUTH_TOKEN'], 
+                                {
+                                  apiId: 'ex_y7BPYzNG' // Generic Extractor
+                                });
+var strings = [
+    "Hello World"
+];
+
+extractor.extractKeywords(strings)
+  .then(function(response){
+    console.log(JSON.stringify(response.results()));
+    console.log("Query Limit Remaning : " + extractor.queryLimitRemaning());
+  })
+  .catch(function(error){
+    console.error("ERROR", error);
+  });
+                            
+```
+
+##### Command Line Demo Example
+```
+$ export MONKEYLEARN_AUTH_TOKEN=YOUR_AUTH_TOKEN
+$ ./bin/keyword_extract "Hello World"
 ```
 
 ## Development
@@ -48,3 +77,4 @@ $ ./bin/classify "Hello World"
 * Run tests with ``$ gulp mocha``
 * Run tests on change with ``$ gulp watch-mocha``
 * Debug tests with ``$ node-debug _mocha spec --require spec/helpers/chai.js``
+
