@@ -5,7 +5,7 @@
 
 var MONKEYLEARN_AUTH_TOKEN = process.env.MONKEYLEARN_AUTH_TOKEN;
 
-var Extractor = require('../index').MonkeylearnExtractor;
+var Extractor = require('../index').Extractor;
 
 if(!MONKEYLEARN_AUTH_TOKEN){
   console.error('Please set MONKEYLEARN_AUTH_TOKEN with your auth token');
@@ -14,10 +14,12 @@ if(!MONKEYLEARN_AUTH_TOKEN){
   process.exit(1);
 }
 
+var apiId = process.argv[3] || "ex_y7BPYzNG";
+
 var extractor = new Extractor(
   MONKEYLEARN_AUTH_TOKEN,
   {
-    extractorId: "ex_y7BPYzNG", 
+    apiId: apiId, 
 //    sandbox: true,
 //    debug: true
   }

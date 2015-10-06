@@ -1,6 +1,6 @@
 //var MonkeylearnClassifier = require('../lib/monkeylearn_classifier');
 
-var MonkeylearnClassifier = require('../index').MonkeylearnClassifier;
+var MonkeylearnClassifier = require('../index').Classifier;
 
 // To Stub the API requests
 //
@@ -22,9 +22,9 @@ describe("MonkeylearnClassifier", function() {
         var classifier, https_request_stub, fake_response, request_mock,
             request_setTimeout_spy, request_write_spy, request_on_spy;
 
-        function stubHttpsRequest(classifierId) {
+        function stubHttpsRequest(apiId) {
             classifier = new MonkeylearnClassifier(PRETEND_AUTH_TOKEN, {
-                classifierId: classifierId,
+                apiId: apiId,
                 timeout: TEST_TIMEOUT
             });
 

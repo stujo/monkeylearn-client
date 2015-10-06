@@ -1,5 +1,7 @@
-var MonkeylearnClassifier = require('./lib/monkeylearn_classifier')
+var Classifier = require('./lib/monkeylearn_classifier');
+var Extractor = require('./lib/monkeylearn_extractor');
 
 module.exports = {
-  MonkeylearnClassifier: MonkeylearnClassifier
+    Classifier: Classifier,
+    Extractor: Extractor
 };

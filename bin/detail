@@ -5,7 +5,7 @@
 
 var MONKEYLEARN_AUTH_TOKEN = process.env.MONKEYLEARN_AUTH_TOKEN;
 
-var Classifier = require('../index').MonkeylearnClassifier;
+var Classifier = require('../index').Classifier;
 
 if(!MONKEYLEARN_AUTH_TOKEN){
   console.error('Please set MONKEYLEARN_AUTH_TOKEN with your auth token');
@@ -17,7 +17,7 @@ if(!MONKEYLEARN_AUTH_TOKEN){
 var classifier = new Classifier(
   MONKEYLEARN_AUTH_TOKEN,
   {
-    classifierId: "cl_5icAVzKR", 
+    apiId: "cl_5icAVzKR", 
 //    sandbox: true,
 //    debug: true
   }
