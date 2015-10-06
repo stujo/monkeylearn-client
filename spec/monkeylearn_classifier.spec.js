@@ -1,6 +1,6 @@
-//var Classifier = require('../lib/classifier');
+//var MonkeylearnClassifier = require('../lib/monkeylearn_classifier');
 
-var Classifier = require('../index').Classifier;
+var MonkeylearnClassifier = require('../index').MonkeylearnClassifier;
 
 // To Stub the API requests
 //
@@ -8,7 +8,7 @@ var sinon = require('sinon');
 var https = require('https');
 var PassThrough = require('stream').PassThrough;
 
-describe("Classifier", function() {
+describe("MonkeylearnClassifier", function() {
     "use strict";
 
     var PRETEND_AUTH_TOKEN = "XXXPRETEND_AUTH_TOKENXXX";
@@ -23,7 +23,7 @@ describe("Classifier", function() {
             request_setTimeout_spy, request_write_spy, request_on_spy;
 
         function stubHttpsRequest(classifierId) {
-            classifier = new Classifier(PRETEND_AUTH_TOKEN, {
+            classifier = new MonkeylearnClassifier(PRETEND_AUTH_TOKEN, {
                 classifierId: classifierId,
                 timeout: TEST_TIMEOUT
             });

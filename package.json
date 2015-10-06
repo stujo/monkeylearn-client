@@ -1,28 +1,28 @@
 {
-  "name": "monkeylearn-classifier",
-  "version": "1.1.0",
-  "description": "Client for Monkeylearn Classifiers",
+  "name": "monkeylearn-client",
+  "version": "1.2.0",
+  "description": "Client for Monkeylearn API",
   "main": "./index.js",
   "scripts": {
-    "run": "./bin/classify",
     "test": "gulp mocha",
     "debugtest": "node-debug _mocha spec --require spec/helpers/chai.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stujo/node-monkeylearn-classifier.git"
+    "url": "git+https://github.com/stujo/monkeylearn-client.git"
   },
   "keywords": [
     "monkeylearn",
     "client",
-    "classifier"
+    "classifier",
+    "extractor"
   ],
   "author": "stujo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/stujo/node-monkeylearn-classifier/issues"
+    "url": "https://github.com/stujo/monkeylearn-client/issues"
   },
-  "homepage": "https://github.com/stujo/node-monkeylearn-classifier#readme",
+  "homepage": "https://github.com/stujo/monkeylearn-client#readme",
   "devDependencies": {
     "chai": "^3.3.0",
     "gulp": "^3.9.0",
