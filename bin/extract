@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+
+// To run in the debugger...
+//  #!/usr/bin/env node-debug
+
+var MONKEYLEARN_AUTH_TOKEN = process.env.MONKEYLEARN_AUTH_TOKEN;
+
+var Extractor = require('../index').MonkeylearnExtractor;
+
+if(!MONKEYLEARN_AUTH_TOKEN){
+  console.error('Please set MONKEYLEARN_AUTH_TOKEN with your auth token');
+  console.error('e.g. export MONKEYLEARN_AUTH_TOKEN=XXXXXXX')
+
+  process.exit(1);
+}
+
+var extractor = new Extractor(
+  MONKEYLEARN_AUTH_TOKEN,
+  {
+    extractorId: "ex_y7BPYzNG", 
+//    sandbox: true,
+//    debug: true
+  }
+);
+
+var strings = process.argv[2];
+
+extractor.extractKeywords(strings, function(error, response) {
+    if(error){
+      console.error("HTTPS ERROR", error);
+    } else {
+      if(response.resolved()){
+        console.log(JSON.stringify(response.results()));
+        console.log("Query Limit Remaning : " + extractor.queryLimitRemaning());
+      } else {
+        // API Error Message
+        console.log("API ERROR", response.error());
+      }
+    }
+  });
+
+
+
+
