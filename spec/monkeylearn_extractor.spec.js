@@ -40,11 +40,8 @@ describe("MonkeylearnExtractor", function() {
         describe("with valid data", function() {
             "use strict";
             var stubbing;
-            
-            var TEST_DATA_1 = [
-                "Reading newspapers and magazines for articles",
-                "Sailing around in boats on the ocean"
-            ];
+
+            var TEST_DATA_1 = "Hello World";
 
             var EXPECTED_PAYLOAD_1 = JSON.stringify({
                 text_list: TEST_DATA_1
@@ -53,21 +50,10 @@ describe("MonkeylearnExtractor", function() {
             var TEST_RESPONSE_DATA_1 = {
                 "result": [
                     [{
-                        "probability": 0.139,
-                        "label": "Entertainment & Recreation"
-                    }, {
-                        "probability": 0.651,
-                        "label": "Magazines"
-                    }],
-                    [{
-                        "probability": 0.894,
-                        "label": "Travel"
-                    }, {
-                        "probability": 0.961,
-                        "label": "Transportation"
-                    }, {
-                        "probability": 0.995,
-                        "label": "Watercraft"
+                        "relevance": "0.909",
+                        "count": 1,
+                        "positions_in_text": [6],
+                        "keyword": "World"
                     }]
                 ]
             };
