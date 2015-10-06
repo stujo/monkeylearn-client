@@ -1,6 +1,6 @@
-//var MonkeylearnClassifier = require('../lib/monkeylearn_classifier');
-
 var MonkeylearnClassifier = require('../index').Classifier;
+
+var BaseStubbing = require('./helpers/base_stubbing');
 
 // To Stub the API requests
 //
