@@ -1,4 +1,4 @@
-# MonkeyLearn Client for Classifiers
+# MonkeyLearn Client for JavaScript/Node
 
 ## Usage
 
@@ -8,15 +8,15 @@ This package requires an auth token from MonkeyLearn, available [here](https://a
 
 Install the package into your project
 ```
-$ npm install monkeylearn-classifier --save
+$ npm install monkeylearn-client --save
 ```
 
 ```
-var Classifier = require('monkeylearn-classifier').Classifier;
+var Classifier = require('monkeylearn-client').Classifier;
 
 var classifier = new Classifier(process.env['MONKEYLEARN_AUTH_TOKEN'], 
                                 {
-                                  classifierId: 'cl_5icAVzKR' // Generic Topic Classifier
+                                  apiId: 'cl_5icAVzKR' // Generic Topic Classifier
                                 });
 
 classifier.classify([

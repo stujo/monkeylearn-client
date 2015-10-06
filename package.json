@@ -1,6 +1,6 @@
 {
   "name": "monkeylearn-client",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Client for Monkeylearn API",
   "main": "./index.js",
   "scripts": {
